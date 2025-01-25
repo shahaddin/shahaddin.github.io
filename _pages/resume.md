@@ -1,7 +1,7 @@
 ---
 layout: archive
-title: "CV"
-permalink: /cv/
+title: ""
+permalink: /Resume/
 author_profile: true
 redirect_from:
   - /resume
@@ -9,6 +9,8 @@ redirect_from:
 
 {% include base_path %}
 
+
+[**Download the Resume**](./resume.pdf)
 
 Education
 ======
