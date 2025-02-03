@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: "Site Under Construction"
+title: "Summary of Experience"
 author_profile: true
 redirect_from: 
   - /about/
