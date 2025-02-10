@@ -1,0 +1,7 @@
+---
+title: "Circular Buffer Implementation(w. PThread)"
+link: https://github.com/shahaddin/Circular-Buffer-Pthread-
+excerpt: "C program using condition variables to manage a circular buffer shared between a producer and consumer thread, ensuring proper synchronization and communication for up to 50 characters.<br/><img src='/images/500x300.png'>"
+collection: Projects
+---
+

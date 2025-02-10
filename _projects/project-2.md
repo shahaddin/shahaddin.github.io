@@ -1,0 +1,8 @@
+---
+title: "InCollege"
+link: https://github.com/shahaddin/InCollege
+excerpt: "InCollege is a Command Line Interface that simulates a social media platform similar to LinkedIn, but for college students. <br/><img src='/images/500x300.png'>"
+collection: Projects
+---
+
+[InCollege GitHub Page](https://github.com/yourusername/InCollege)

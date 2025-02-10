@@ -1,0 +1,7 @@
+---
+title: "MediaPipe by Google AI-Edge"
+link: https://github.com/shahaddin/MediaPipe-by-Google-AI-Edge
+excerpt: "Computer Vision Application: Pose Landmark Detection and Hand Landmark Detection using Google's MediaPipe library. <br/><img src='/images/500x300.png'>"
+collection: Projects
+---
+
