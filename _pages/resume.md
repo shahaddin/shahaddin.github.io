@@ -12,7 +12,7 @@ redirect_from:
 
 [**Download the Resume**](https://drive.google.com/file/d/1y2qdsjjomUfDj00TTLCAxZDFF0QJiVuM/view?usp=sharing)
 
-Education
+<!-- Education
 ======
 * B.S. in University of South Florida, Computer Science, 2024
 
@@ -43,4 +43,4 @@ Publications
 Service and leadership
 ======
 * Azerbaijani Student Association
-* Society of Competitive Programmers
+* Society of Competitive Programmers -->
