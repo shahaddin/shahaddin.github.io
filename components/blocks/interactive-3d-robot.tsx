@@ -1,36 +1,123 @@
 'use client';
 
+import { useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
 import { InteractiveRobotSpline } from '@/components/ui/interactive-3d-robot';
+
+function useTilt(ref: React.RefObject<HTMLDivElement | null>) {
+  useEffect(() => {
+    let permitted = false;
+
+    function applyTilt(beta: number, gamma: number) {
+      if (!ref.current) return;
+      const x = Math.max(-15, Math.min(15, beta * 0.3));
+      const y = Math.max(-15, Math.min(15, gamma * 0.3));
+      ref.current.style.transform = `perspective(800px) rotateX(${-x}deg) rotateY(${y}deg)`;
+    }
+
+    function handleOrientation(e: DeviceOrientationEvent) {
+      if (!permitted) return;
+      applyTilt(e.beta ?? 0, e.gamma ?? 0);
+    }
+
+    async function requestAndListen() {
+      if (
+        typeof DeviceOrientationEvent !== 'undefined' &&
+        // @ts-expect-error - requestPermission is iOS-only
+        typeof DeviceOrientationEvent.requestPermission === 'function'
+      ) {
+        try {
+          // @ts-expect-error - requestPermission is iOS-only
+          const permission = await DeviceOrientationEvent.requestPermission();
+          if (permission === 'granted') {
+            permitted = true;
+            window.addEventListener('deviceorientation', handleOrientation);
+          }
+        } catch {
+          // permission denied or unavailable
+        }
+      } else if (typeof DeviceOrientationEvent !== 'undefined') {
+        // Android — no permission needed
+        permitted = true;
+        window.addEventListener('deviceorientation', handleOrientation);
+      }
+    }
+
+    // iOS requires a user gesture before requestPermission can be called
+    window.addEventListener('touchstart', requestAndListen, { once: true });
+
+    return () => {
+      window.removeEventListener('touchstart', requestAndListen);
+      window.removeEventListener('deviceorientation', handleOrientation);
+    };
+  }, [ref]);
+}
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 28 },
+  show: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: i * 0.13, duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] },
+  }),
+};
 
 export function Section() {
   const ROBOT_SCENE_URL = "https://prod.spline.design/PyzDhpQ9E5f1E3MT/scene.splinecode";
+  const tiltRef = useRef<HTMLDivElement>(null);
+  useTilt(tiltRef);
 
   return (
     <div className="relative w-screen h-screen overflow-hidden">
-      <InteractiveRobotSpline
-        scene={ROBOT_SCENE_URL}
-        className="absolute inset-0 z-0 translate-y-32"
-      />
+      {/* Robot — wrapped for tilt effect */}
+      <div
+        ref={tiltRef}
+        className="absolute inset-0 z-0 will-change-transform"
+        style={{ transition: 'transform 0.1s ease-out' }}
+      >
+        <InteractiveRobotSpline
+          scene={ROBOT_SCENE_URL}
+          className="absolute inset-0 translate-y-32"
+        />
+      </div>
 
+      {/* Staggered slide-in text overlay */}
       <div className="absolute inset-0 z-10 pt-20 md:pt-32 lg:pt-40 px-4 md:px-8 pointer-events-none">
         <div className="text-center text-white drop-shadow-lg w-full max-w-2xl mx-auto">
-          <p className="text-sm md:text-base uppercase tracking-widest text-blue-300 mb-3 font-medium">
-            PhD Researcher · AI/ML
-          </p>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight">
+
+          <motion.p
+            className="text-sm md:text-base uppercase tracking-widest text-blue-300 mb-3 font-medium"
+            variants={fadeUp} custom={0} initial="hidden" animate="show"
+          >
+            PhD Researcher · AI/ML · Full-Stack
+          </motion.p>
+
+          <motion.h1
+            className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight"
+            variants={fadeUp} custom={1} initial="hidden" animate="show"
+          >
             Shahaddin Gafarov
-          </h1>
-          <p className="mt-4 text-base md:text-lg text-white/70 max-w-lg mx-auto">
+          </motion.h1>
+
+          <motion.p
+            className="mt-4 text-base md:text-lg text-white/70 max-w-lg mx-auto"
+            variants={fadeUp} custom={2} initial="hidden" animate="show"
+          >
             Building intelligent systems at the intersection of deep learning, bioinformatics, and software engineering.
-          </p>
-          <div className="mt-8 flex gap-4 justify-center pointer-events-auto">
+          </motion.p>
+
+          <motion.div
+            className="mt-8 flex gap-4 justify-center pointer-events-auto"
+            variants={fadeUp} custom={3} initial="hidden" animate="show"
+          >
             <a href="#research" className="px-6 py-2.5 bg-white text-black rounded-full font-medium text-sm hover:bg-white/90 transition">
               See Research
             </a>
             <a href="#contact" className="px-6 py-2.5 border border-white/40 text-white rounded-full font-medium text-sm hover:bg-white/10 transition">
               Contact
             </a>
-          </div>
+          </motion.div>
+
         </div>
       </div>
     </div>
