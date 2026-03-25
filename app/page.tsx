@@ -147,47 +147,46 @@ const awards = [
 
 export default function Home() {
   return (
-    <main className="bg-black text-white">
+    <main className="bg-white dark:bg-black text-gray-900 dark:text-white">
       <Navbar />
 
-      {/* Hero */}
       <Section />
 
       {/* About */}
       <section className="max-w-4xl mx-auto px-6 py-24">
         <FadeIn>
-          <h2 className="text-xs uppercase tracking-widest text-blue-400 mb-3">About</h2>
-          <p className="text-2xl md:text-3xl font-light leading-relaxed text-white/90">
+          <h2 className="text-xs uppercase tracking-widest text-blue-500 dark:text-blue-400 mb-3">About</h2>
+          <p className="text-2xl md:text-3xl font-light leading-relaxed text-gray-800 dark:text-white/90">
             I&apos;m a PhD student in Computer Science at the{' '}
-            <span className="text-white font-medium">University of Florida</span>, solving problems related to
+            <span className="text-gray-900 dark:text-white font-medium">University of Florida</span>, solving problems related to
             bioinformatics using deep learning and computer vision applications.
             I also have general software engineering experience via full-stack development, and competitive programming.
           </p>
         </FadeIn>
       </section>
 
-      <div className="border-t border-white/10" />
+      <div className="border-t border-black/10 dark:border-white/10" />
 
       {/* Experience */}
       <section id="experience" className="max-w-4xl mx-auto px-6 py-24">
         <FadeIn>
-          <h2 className="text-xs uppercase tracking-widest text-blue-400 mb-12">Experience</h2>
+          <h2 className="text-xs uppercase tracking-widest text-blue-500 dark:text-blue-400 mb-12">Experience</h2>
         </FadeIn>
         <div className="space-y-12">
           {experience.map((job) => (
             <FadeIn key={job.title}>
               <div className="grid md:grid-cols-[1fr_2fr] gap-4">
                 <div>
-                  <p className="text-white/40 text-sm">{job.period}</p>
-                  <p className="text-white/60 text-sm mt-1">{job.org}</p>
-                  <p className="text-white/40 text-xs mt-0.5">{job.location}</p>
+                  <p className="text-gray-400 dark:text-white/40 text-sm">{job.period}</p>
+                  <p className="text-gray-500 dark:text-white/60 text-sm mt-1">{job.org}</p>
+                  <p className="text-gray-400 dark:text-white/40 text-xs mt-0.5">{job.location}</p>
                 </div>
                 <div>
-                  <h3 className="font-semibold text-white">{job.title}</h3>
+                  <h3 className="font-semibold text-gray-900 dark:text-white">{job.title}</h3>
                   <ul className="mt-3 space-y-1.5">
                     {job.bullets.map((b) => (
-                      <li key={b} className="text-white/60 text-sm flex gap-2">
-                        <span className="text-blue-400 mt-1 shrink-0">–</span>
+                      <li key={b} className="text-gray-600 dark:text-white/60 text-sm flex gap-2">
+                        <span className="text-blue-500 dark:text-blue-400 mt-1 shrink-0">–</span>
                         {b}
                       </li>
                     ))}
@@ -199,23 +198,23 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="border-t border-white/10" />
+      <div className="border-t border-black/10 dark:border-white/10" />
 
       {/* Research */}
       <section id="research" className="max-w-4xl mx-auto px-6 py-24">
         <FadeIn>
-          <h2 className="text-xs uppercase tracking-widest text-blue-400 mb-12">Research</h2>
+          <h2 className="text-xs uppercase tracking-widest text-blue-500 dark:text-blue-400 mb-12">Research</h2>
         </FadeIn>
         <div className="grid md:grid-cols-3 gap-6">
           {research.map((r) => (
             <FadeIn key={r.name}>
-              <div className="border border-white/10 rounded-2xl p-6 hover:border-white/25 transition h-full">
-                <h3 className="font-bold text-lg">{r.name}</h3>
-                <p className="text-white/50 text-xs mt-1 mb-3">{r.status}</p>
-                <p className="text-white/70 text-sm leading-relaxed">{r.desc}</p>
+              <div className="border border-black/10 dark:border-white/10 rounded-2xl p-6 hover:border-black/25 dark:hover:border-white/25 transition h-full">
+                <h3 className="font-bold text-lg text-gray-900 dark:text-white">{r.name}</h3>
+                <p className="text-gray-400 dark:text-white/50 text-xs mt-1 mb-3">{r.status}</p>
+                <p className="text-gray-600 dark:text-white/70 text-sm leading-relaxed">{r.desc}</p>
                 <div className="mt-4 flex flex-wrap gap-1.5">
                   {r.tags.map((t) => (
-                    <span key={t} className="text-xs px-2 py-0.5 rounded-full bg-white/5 text-white/50 border border-white/10">{t}</span>
+                    <span key={t} className="text-xs px-2 py-0.5 rounded-full bg-black/5 dark:bg-white/5 text-gray-500 dark:text-white/50 border border-black/10 dark:border-white/10">{t}</span>
                   ))}
                 </div>
               </div>
@@ -224,22 +223,22 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="border-t border-white/10" />
+      <div className="border-t border-black/10 dark:border-white/10" />
 
       {/* Publications */}
       <section id="publications" className="max-w-4xl mx-auto px-6 py-24">
         <FadeIn>
-          <h2 className="text-xs uppercase tracking-widest text-blue-400 mb-12">Publications</h2>
+          <h2 className="text-xs uppercase tracking-widest text-blue-500 dark:text-blue-400 mb-12">Publications</h2>
         </FadeIn>
         <div className="space-y-8">
           {publications.map((p) => (
             <FadeIn key={p.title}>
               <div className="flex gap-6">
-                <span className="text-blue-400 font-mono text-sm mt-1 shrink-0">{p.year}</span>
+                <span className="text-blue-500 dark:text-blue-400 font-mono text-sm mt-1 shrink-0">{p.year}</span>
                 <div>
-                  <p className="font-medium text-white">{p.title}</p>
-                  <p className="text-white/50 text-sm mt-1">{p.authors}</p>
-                  <p className="text-blue-300/70 text-sm mt-1">
+                  <p className="font-medium text-gray-900 dark:text-white">{p.title}</p>
+                  <p className="text-gray-500 dark:text-white/50 text-sm mt-1">{p.authors}</p>
+                  <p className="text-blue-500/70 dark:text-blue-300/70 text-sm mt-1">
                     {p.venue}{p.note ? ` · ${p.note}` : ''}
                   </p>
                 </div>
@@ -249,12 +248,12 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="border-t border-white/10" />
+      <div className="border-t border-black/10 dark:border-white/10" />
 
       {/* Projects */}
       <section id="projects" className="max-w-4xl mx-auto px-6 py-24">
         <FadeIn>
-          <h2 className="text-xs uppercase tracking-widest text-blue-400 mb-12">Projects</h2>
+          <h2 className="text-xs uppercase tracking-widest text-blue-500 dark:text-blue-400 mb-12">Projects</h2>
         </FadeIn>
         <div className="grid md:grid-cols-2 gap-6">
           {projects.map((p) => (
@@ -263,16 +262,16 @@ export default function Home() {
                 href={p.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="border border-white/10 rounded-2xl p-6 hover:border-white/25 transition group block h-full"
+                className="border border-black/10 dark:border-white/10 rounded-2xl p-6 hover:border-black/25 dark:hover:border-white/25 transition group block h-full"
               >
                 <div className="flex items-center justify-between mb-3">
-                  <h3 className="font-bold group-hover:text-blue-300 transition">{p.name}</h3>
-                  <ExternalLink size={14} className="text-white/30 group-hover:text-blue-300 transition" />
+                  <h3 className="font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-300 transition">{p.name}</h3>
+                  <ExternalLink size={14} className="text-gray-400 dark:text-white/30 group-hover:text-blue-600 dark:group-hover:text-blue-300 transition" />
                 </div>
-                <p className="text-white/60 text-sm leading-relaxed">{p.desc}</p>
+                <p className="text-gray-600 dark:text-white/60 text-sm leading-relaxed">{p.desc}</p>
                 <div className="mt-4 flex flex-wrap gap-1.5">
                   {p.tags.map((t) => (
-                    <span key={t} className="text-xs px-2 py-0.5 rounded-full bg-white/5 text-white/50 border border-white/10">{t}</span>
+                    <span key={t} className="text-xs px-2 py-0.5 rounded-full bg-black/5 dark:bg-white/5 text-gray-500 dark:text-white/50 border border-black/10 dark:border-white/10">{t}</span>
                   ))}
                 </div>
               </a>
@@ -281,19 +280,19 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="border-t border-white/10" />
+      <div className="border-t border-black/10 dark:border-white/10" />
 
       {/* Skills */}
       <section className="max-w-4xl mx-auto px-6 py-24">
         <FadeIn>
-          <h2 className="text-xs uppercase tracking-widest text-blue-400 mb-10">Technical Skills</h2>
+          <h2 className="text-xs uppercase tracking-widest text-blue-500 dark:text-blue-400 mb-10">Technical Skills</h2>
           <div className="space-y-6">
             {Object.entries(skills).map(([category, items]) => (
               <div key={category} className="grid md:grid-cols-[120px_1fr] gap-4 items-start">
-                <span className="text-white/40 text-sm pt-1">{category}</span>
+                <span className="text-gray-400 dark:text-white/40 text-sm pt-1">{category}</span>
                 <div className="flex flex-wrap gap-2">
                   {items.map((s) => (
-                    <span key={s} className="px-3 py-1.5 rounded-full border border-white/15 text-white/70 text-sm hover:border-white/30 hover:text-white transition">
+                    <span key={s} className="px-3 py-1.5 rounded-full border border-black/15 dark:border-white/15 text-gray-700 dark:text-white/70 text-sm hover:border-black/30 dark:hover:border-white/30 hover:text-gray-900 dark:hover:text-white transition">
                       {s}
                     </span>
                   ))}
@@ -304,49 +303,49 @@ export default function Home() {
         </FadeIn>
       </section>
 
-      <div className="border-t border-white/10" />
+      <div className="border-t border-black/10 dark:border-white/10" />
 
       {/* Awards */}
       <section className="max-w-4xl mx-auto px-6 py-24">
         <FadeIn>
-          <h2 className="text-xs uppercase tracking-widest text-blue-400 mb-10">Awards</h2>
+          <h2 className="text-xs uppercase tracking-widest text-blue-500 dark:text-blue-400 mb-10">Awards</h2>
         </FadeIn>
         <div className="grid md:grid-cols-3 gap-6">
           {awards.map((a) => (
             <FadeIn key={a.title}>
-              <div className="border border-white/10 rounded-2xl p-6">
-                <p className="font-semibold text-white">{a.title}</p>
-                <p className="text-white/50 text-sm mt-1">{a.org}</p>
+              <div className="border border-black/10 dark:border-white/10 rounded-2xl p-6">
+                <p className="font-semibold text-gray-900 dark:text-white">{a.title}</p>
+                <p className="text-gray-500 dark:text-white/50 text-sm mt-1">{a.org}</p>
               </div>
             </FadeIn>
           ))}
         </div>
       </section>
 
-      <div className="border-t border-white/10" />
+      <div className="border-t border-black/10 dark:border-white/10" />
 
       {/* Contact */}
       <section id="contact" className="max-w-4xl mx-auto px-6 py-24">
         <FadeIn>
-          <h2 className="text-xs uppercase tracking-widest text-blue-400 mb-8">Contact</h2>
-          <p className="text-2xl font-light text-white/80 mb-10">
+          <h2 className="text-xs uppercase tracking-widest text-blue-500 dark:text-blue-400 mb-8">Contact</h2>
+          <p className="text-2xl font-light text-gray-700 dark:text-white/80 mb-10">
             Open to research collaborations, opportunities, and conversations.
           </p>
           <div className="flex flex-wrap gap-6">
-            <a href="mailto:shahaddingafarov@gmail.com" className="flex items-center gap-2 text-white/60 hover:text-white transition text-sm">
+            <a href="mailto:shahaddingafarov@gmail.com" className="flex items-center gap-2 text-gray-500 dark:text-white/60 hover:text-gray-900 dark:hover:text-white transition text-sm">
               <Mail size={16} /> shahaddingafarov@gmail.com
             </a>
-            <a href="https://github.com/shahaddin" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-white/60 hover:text-white transition text-sm">
+            <a href="https://github.com/shahaddin" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-gray-500 dark:text-white/60 hover:text-gray-900 dark:hover:text-white transition text-sm">
               <ExternalLink size={16} /> github.com/shahaddin
             </a>
-            <a href="https://linkedin.com/in/shahaddin" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-white/60 hover:text-white transition text-sm">
+            <a href="https://linkedin.com/in/shahaddin" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-gray-500 dark:text-white/60 hover:text-gray-900 dark:hover:text-white transition text-sm">
               <ExternalLink size={16} /> linkedin.com/in/shahaddin
             </a>
           </div>
         </FadeIn>
       </section>
 
-      <footer className="border-t border-white/10 text-center py-8 text-white/20 text-xs">
+      <footer className="border-t border-black/10 dark:border-white/10 text-center py-8 text-gray-400 dark:text-white/20 text-xs">
         © {new Date().getFullYear()} Shahaddin Gafarov
       </footer>
     </main>
