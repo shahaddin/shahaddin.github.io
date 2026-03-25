@@ -36,9 +36,10 @@ export function Section() {
 
   function applyTilt(beta: number, gamma: number) {
     if (!tiltRef.current) return;
-    const x = Math.max(-15, Math.min(15, beta * 0.3));
-    const y = Math.max(-15, Math.min(15, gamma * 0.3));
-    tiltRef.current.style.transform = `perspective(800px) rotateX(${-x}deg) rotateY(${y}deg)`;
+    // Translate instead of rotate so the robot floats/shifts rather than the whole frame tilting
+    const x = Math.max(-40, Math.min(40, gamma * 0.8)); // left-right
+    const y = Math.max(-30, Math.min(30, (beta - 45) * 0.5)); // up-down (45° is neutral hold angle)
+    tiltRef.current.style.transform = `translateX(${x}px) translateY(${y}px)`;
   }
 
   // Android: auto-enable on mount
