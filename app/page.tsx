@@ -113,7 +113,7 @@ const projects = [
   },
   {
     name: 'InCollege',
-    desc: 'CLI application simulating a LinkedIn-like social platform for college students — streamlines job postings and student communication using Python and SQLite.',
+    desc: 'CLI application simulating a LinkedIn-like social platform for college students, streamlining job postings and student communication using Python and SQLite.',
     tags: ['Python', 'SQLite', 'CLI', 'Agile'],
     url: 'https://github.com/daniel19e/SWE-Project-Fall23-InCollege',
   },
@@ -146,7 +146,7 @@ const publications = [
 ];
 
 const skills: Record<string, string[]> = {
-  Languages: ['Python', 'C/C++', 'C#', 'SQL', 'JavaScript', 'HTML/CSS'],
+  Languages: ['Python', 'C', 'C++', 'C#', 'SQL', 'JavaScript', 'HTML/CSS'],
   Libraries: ['PyTorch', 'TensorFlow', 'NumPy', 'Pandas', 'Matplotlib'],
   Tools: ['Git', 'Docker', 'Jira', 'VS Code', 'Visual Studio', 'PyCharm', 'Overleaf'],
 };
@@ -167,12 +167,9 @@ export default function Home() {
       {/* About */}
       <section className="max-w-4xl mx-auto px-6 py-24">
         <FadeIn>
-          <h2 className="text-xs uppercase tracking-widest text-blue-500 dark:text-blue-400 mb-3">About</h2>
-          <p className="text-2xl md:text-3xl font-light leading-relaxed text-gray-800 dark:text-white/90">
-            I&apos;m a PhD student in Computer Science at the{' '}
-            <span className="text-gray-900 dark:text-white font-medium">University of Florida</span>, solving problems related to
-            bioinformatics using deep learning and computer vision applications.
-            I also have general software engineering experience via full-stack development, and competitive programming.
+          <h2 className="text-xs uppercase tracking-widest text-blue-500 dark:text-blue-400 mb-6">About</h2>
+          <p className="text-base md:text-lg leading-relaxed text-gray-500 dark:text-white/60 max-w-2xl">
+            PhD researcher at the <span className="text-gray-900 dark:text-white font-medium">University of Florida</span>, building deep learning systems for bioinformatics and medical imaging. Three publications across ACM, IEEE, and Medical Image Analysis, with ongoing NVIDIA-supported research in spatial transcriptomics and adversarial robustness.
           </p>
         </FadeIn>
       </section>
@@ -354,6 +351,9 @@ export default function Home() {
             </a>
             <a href="https://linkedin.com/in/shahaddin" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-gray-500 dark:text-white/60 hover:text-gray-900 dark:hover:text-white transition text-sm">
               <ExternalLink size={16} /> linkedin.com/in/shahaddin
+            </a>
+            <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-gray-500 dark:text-white/60 hover:text-gray-900 dark:hover:text-white transition text-sm">
+              <ExternalLink size={16} /> Resume
             </a>
           </div>
         </FadeIn>

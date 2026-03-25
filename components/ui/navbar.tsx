@@ -45,6 +45,15 @@ export function Navbar() {
           ))}
         </ul>
 
+        <a
+          href="/resume.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-sm px-4 py-1.5 border border-white/30 text-white/70 hover:text-white hover:border-white/60 rounded-full transition"
+        >
+          Resume
+        </a>
+
         {/* Theme toggle commented out
         {mounted && (
           <button
