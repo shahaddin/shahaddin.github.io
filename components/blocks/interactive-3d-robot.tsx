@@ -15,7 +15,7 @@ export function Section() {
   const ROBOT_SCENE_URL = "https://prod.spline.design/PyzDhpQ9E5f1E3MT/scene.splinecode";
 
   return (
-    <div className="relative w-screen h-screen overflow-hidden">
+    <div className="relative w-screen h-screen overflow-hidden bg-black">
       <InteractiveRobotSpline
         scene={ROBOT_SCENE_URL}
         className="absolute inset-0 z-0 translate-y-32"
