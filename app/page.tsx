@@ -68,6 +68,16 @@ const research = [
     tags: ['Robotics', '6D Pose', 'Deep Learning', 'Computer Vision'],
     status: 'Published – IEEE RA-L 2025',
   },
+  {
+    name: 'Spatial Transcriptomics Super-Resolution',
+    desc: 'Deep learning model that enhances spatial transcriptomics data from multi-cellular to single-cellular resolution, enabling finer-grained analysis of gene expression within tissue architecture. Supported by an NVIDIA grant.',
+    tags: ['Spatial Transcriptomics', 'Super-Resolution', 'Deep Learning', 'NVIDIA'],
+  },
+  {
+    name: 'Benchmarking Temporal Graph Prediction',
+    desc: 'Comprehensive benchmarking framework to evaluate the robustness of temporal graph-based prediction models under adversarial conditions, assessing generalizability across evolving biological and relational networks.',
+    tags: ['Temporal Graphs', 'Adversarial Robustness', 'Benchmarking', 'Graph Neural Networks'],
+  },
 ];
 
 const projects = [
@@ -123,6 +133,7 @@ const publications = [
     venue: "ACM BCB '25, Philadelphia, PA",
     year: '2025',
     note: undefined,
+    url: 'https://par.nsf.gov/servlets/purl/10665388',
   },
   {
     authors: 'Chen, T., Frumento, R., Pagnanelli, G., Keth, V., Gafarov, S., et al.',
@@ -130,18 +141,19 @@ const publications = [
     venue: 'IEEE Robotics and Automation Letters',
     year: '2025',
     note: 'Vol. 10, pp. 9510–9517',
+    url: 'https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=11108246',
   },
 ];
 
 const skills: Record<string, string[]> = {
-  Languages: ['Python', 'C/C++', 'C#', 'SQL (MySQL)', 'JavaScript', 'HTML/CSS'],
+  Languages: ['Python', 'C/C++', 'C#', 'SQL', 'JavaScript', 'HTML/CSS'],
   Libraries: ['PyTorch', 'TensorFlow', 'NumPy', 'Pandas', 'Matplotlib'],
   Tools: ['Git', 'Docker', 'Jira', 'VS Code', 'Visual Studio', 'PyCharm', 'Overleaf'],
 };
 
 const awards = [
-  { title: 'Full Tuition Waiver & Stipend', org: 'University of Florida – PhD Program' },
-  { title: 'Green & Gold Presidential Award', org: 'University of South Florida' },
+  { title: 'Full Tuition Waiver & Stipend', org: 'University of Florida : PhD' },
+  { title: 'Green & Gold Presidential Award', org: 'University of South Florida, BS' },
   { title: 'Bronze Medal', org: 'National Informatics Olympiad of Azerbaijan' },
 ];
 
@@ -236,7 +248,11 @@ export default function Home() {
               <div className="flex gap-6">
                 <span className="text-blue-500 dark:text-blue-400 font-mono text-sm mt-1 shrink-0">{p.year}</span>
                 <div>
-                  <p className="font-medium text-gray-900 dark:text-white">{p.title}</p>
+                  {p.url ? (
+                    <a href={p.url} target="_blank" rel="noopener noreferrer" className="font-medium text-gray-900 dark:text-white hover:text-blue-500 dark:hover:text-blue-400 transition">{p.title}</a>
+                  ) : (
+                    <p className="font-medium text-gray-900 dark:text-white">{p.title}</p>
+                  )}
                   <p className="text-gray-500 dark:text-white/50 text-sm mt-1">{p.authors}</p>
                   <p className="text-blue-500/70 dark:text-blue-300/70 text-sm mt-1">
                     {p.venue}{p.note ? ` · ${p.note}` : ''}

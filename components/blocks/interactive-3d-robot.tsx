@@ -28,7 +28,7 @@ export function Section() {
             className="text-sm md:text-base uppercase tracking-widest text-blue-300 mb-3 font-medium"
             {...fadeUp(0)}
           >
-            PhD Researcher · AI/ML · Full-Stack
+            PhD Researcher · AI/ML
           </motion.p>
 
           <motion.h1
