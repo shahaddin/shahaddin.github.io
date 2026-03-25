@@ -3,13 +3,13 @@ import { Mail, Phone, ExternalLink } from 'lucide-react';
 
 const experience = [
   {
-    title: 'Graduate Research Assistant – Bioinformatics & Medical AI',
+    title: 'Graduate Assistant (Research Focus)',
     org: 'University of Florida',
     location: 'Gainesville, FL',
     period: 'Apr 2025 – Present',
     bullets: [
-      'Working on a multimodal deep learning framework for cancer survival prediction.',
-      'Developing a robustness benchmark for evaluating ML techniques on biological data.',
+      'Building novel machine learning applications to solve bioinformatics and medical imaging problems.',
+      'Developing a robustness score for evaluating contemporary machine learning techniques.',
       'Lead Teaching Assistant for Advanced Data Structures (Prof. Dr. Sartaj Sahni).',
     ],
   },
@@ -19,8 +19,8 @@ const experience = [
     location: 'Tampa, FL',
     period: 'Dec 2023 – Dec 2024',
     bullets: [
-      'Defined robotic systems for benchmarking multi-object grasping solutions.',
-      'Detected 6D poses of top-layer objects using deep learning techniques.',
+      'Defined robotic systems for benchmarking and developing multi-object grasping solutions.',
+      'Detected 6D poses of top-layer objects in the target using deep learning techniques.',
     ],
   },
   {
@@ -30,17 +30,19 @@ const experience = [
     period: 'Apr 2022 – Aug 2022',
     bullets: [
       'Contributed to a startup connecting students and teachers across the United States.',
-      'Collaborated with designers to develop interfaces using front and back-end tools.',
+      'Collaborated with designers to develop interfaces using front-end tools.',
+      'Developed server-side applications using C#/.NET Framework.',
     ],
   },
   {
     title: 'Junior IT Technician – Servers & Database',
     org: 'AzeriMed LLC',
     location: 'Baku, Azerbaijan',
-    period: 'Jun 2020 – Jun 2021',
+    period: 'Jun 2021 – Jun 2022',
     bullets: [
-      "Worked on aptekonline.az, Azerbaijan's first pharmaceutical database.",
-      'Collaborated with senior developers on error handling with databases.',
+      'Collaborated with senior developers on error handling with the databases.',
+      'Ensured proper functioning of AzeriMed servers through maintenance and troubleshooting.',
+      "Worked on aptekonline.az, Azerbaijan's first pharmaceutical database for business purposes.",
     ],
   },
 ];
@@ -68,14 +70,46 @@ const research = [
 
 const projects = [
   {
-    name: 'Delphi Interpreter',
-    desc: 'Implemented a full grammar, parser, lexer, and interpreter from scratch in Java for the Delphi programming language.',
-    tags: ['Java', 'Compilers', 'Interpreter'],
+    name: 'Stock Analysis',
+    desc: 'OOP application to load, display, and analyze stock data using candlesticks, implement pattern recognition, and annotate "smart candlestick" patterns using C# and LINQ.',
+    tags: ['C#', 'LINQ', 'OOP', 'Data Analysis'],
+    url: 'https://github.com/shahaddin/StockAnalysis',
+  },
+  {
+    name: 'Sentiment Analysis',
+    desc: 'Identified textual data into positive, negative, and neutral sentiment using the SemEval-2016 Twitter dataset, implemented over a GPU and an FPGA.',
+    tags: ['C++', 'NLP', 'GPU', 'FPGA'],
+    url: 'https://github.com/shahaddin/Sentiment-Analysis',
+  },
+  {
+    name: 'MediaPipe Pose & Hand Detection',
+    desc: "Computer vision application for real-time Pose Landmark Detection and Hand Landmark Detection using Google's MediaPipe AI Edge library.",
+    tags: ['Python', 'Computer Vision', 'MediaPipe', 'Google AI'],
+    url: 'https://github.com/shahaddin/MediaPipe-by-Google-AI-Edge',
+  },
+  {
+    name: 'Gator Air Traffic Scheduler',
+    desc: 'Airport runway slot scheduler that tracks flights across states using advanced data structures for efficient scheduling and conflict resolution.',
+    tags: ['Python', 'Data Structures', 'Algorithms'],
+    url: 'https://github.com/shahaddin/Gator_AirTrafficScheduler',
+  },
+  {
+    name: 'Rush Unix Shell',
+    desc: 'Lightweight Unix shell implementing command execution, built-in commands, path management, output redirection, and parallel processing.',
+    tags: ['C', 'Systems', 'Unix', 'Concurrency'],
+    url: 'https://github.com/shahaddin/Rush-Unix-Shell-',
+  },
+  {
+    name: 'Circular Buffer (Pthreads)',
+    desc: 'C program using condition variables to manage a circular buffer shared between a producer and consumer thread, demonstrating low-level concurrency.',
+    tags: ['C', 'Pthreads', 'Concurrency', 'OS'],
+    url: 'https://github.com/shahaddin/Circular-Buffer-Pthread-',
   },
   {
     name: 'InCollege',
-    desc: 'Student-focused networking platform with user search and profile management, built using Agile methodology.',
-    tags: ['Full-Stack', 'Agile', 'Networking'],
+    desc: 'CLI application simulating a LinkedIn-like social platform for college students — streamlines job postings and student communication using Python and SQLite.',
+    tags: ['Python', 'SQLite', 'CLI', 'Agile'],
+    url: 'https://github.com/shahaddin/InCollege',
   },
 ];
 
@@ -90,7 +124,7 @@ const publications = [
   {
     authors: 'Khatib, T., Gafarov, S., Strikowski, J. D., Turan, M., & Kahveci, T.',
     title: 'PLATO: Predicting Longitudinally-Aligned Time Observations of Biological Networks.',
-    venue: 'ACM BCB \'25',
+    venue: "ACM BCB '25, Philadelphia, PA",
     year: '2025',
   },
   {
@@ -102,8 +136,11 @@ const publications = [
   },
 ];
 
-const skills = ['Python', 'C/C++', 'C#', 'Java', 'JavaScript', 'SQL (MySQL)', 'HTML/CSS',
-  'PyTorch', 'TensorFlow', 'NumPy', 'Pandas', 'Matplotlib'];
+const skills: Record<string, string[]> = {
+  Languages: ['Python', 'C/C++', 'C#', 'SQL (MySQL)', 'JavaScript', 'HTML/CSS'],
+  Libraries: ['PyTorch', 'TensorFlow', 'NumPy', 'Pandas', 'Matplotlib'],
+  Tools: ['Git', 'Docker', 'Jira', 'VS Code', 'Visual Studio', 'PyCharm', 'Overleaf'],
+};
 
 const awards = [
   { title: 'Full Tuition Waiver & Stipend', org: 'University of Florida – PhD Program' },
@@ -121,7 +158,7 @@ export default function Home() {
       <section className="max-w-4xl mx-auto px-6 py-24">
         <h2 className="text-xs uppercase tracking-widest text-blue-400 mb-3">About</h2>
         <p className="text-2xl md:text-3xl font-light leading-relaxed text-white/90">
-          I'm a PhD student in Computer Science at the{' '}
+          I&apos;m a PhD student in Computer Science at the{' '}
           <span className="text-white font-medium">University of Florida</span>, researching
           multimodal deep learning for cancer survival prediction and robustness in biological AI.
           I also build software — from full-stack web apps to robotics pipelines.
@@ -206,10 +243,16 @@ export default function Home() {
         <h2 className="text-xs uppercase tracking-widest text-blue-400 mb-12">Projects</h2>
         <div className="grid md:grid-cols-2 gap-6">
           {projects.map((p) => (
-            <div key={p.name} className="border border-white/10 rounded-2xl p-6 hover:border-white/25 transition">
+            <a
+              key={p.name}
+              href={p.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="border border-white/10 rounded-2xl p-6 hover:border-white/25 transition group block"
+            >
               <div className="flex items-center justify-between mb-3">
-                <h3 className="font-bold">{p.name}</h3>
-                <ExternalLink size={14} className="text-white/30" />
+                <h3 className="font-bold group-hover:text-blue-300 transition">{p.name}</h3>
+                <ExternalLink size={14} className="text-white/30 group-hover:text-blue-300 transition" />
               </div>
               <p className="text-white/60 text-sm leading-relaxed">{p.desc}</p>
               <div className="mt-4 flex flex-wrap gap-1.5">
@@ -217,7 +260,7 @@ export default function Home() {
                   <span key={t} className="text-xs px-2 py-0.5 rounded-full bg-white/5 text-white/50 border border-white/10">{t}</span>
                 ))}
               </div>
-            </div>
+            </a>
           ))}
         </div>
       </section>
@@ -226,12 +269,19 @@ export default function Home() {
 
       {/* Skills */}
       <section className="max-w-4xl mx-auto px-6 py-24">
-        <h2 className="text-xs uppercase tracking-widest text-blue-400 mb-8">Technical Skills</h2>
-        <div className="flex flex-wrap gap-3">
-          {skills.map((s) => (
-            <span key={s} className="px-4 py-2 rounded-full border border-white/15 text-white/70 text-sm hover:border-white/30 hover:text-white transition">
-              {s}
-            </span>
+        <h2 className="text-xs uppercase tracking-widest text-blue-400 mb-10">Technical Skills</h2>
+        <div className="space-y-6">
+          {Object.entries(skills).map(([category, items]) => (
+            <div key={category} className="grid md:grid-cols-[120px_1fr] gap-4 items-start">
+              <span className="text-white/40 text-sm pt-1">{category}</span>
+              <div className="flex flex-wrap gap-2">
+                {items.map((s) => (
+                  <span key={s} className="px-3 py-1.5 rounded-full border border-white/15 text-white/70 text-sm hover:border-white/30 hover:text-white transition">
+                    {s}
+                  </span>
+                ))}
+              </div>
+            </div>
           ))}
         </div>
       </section>
