@@ -1,57 +1,8 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
+import { useEffect, useRef, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { InteractiveRobotSpline } from '@/components/ui/interactive-3d-robot';
-
-function useTilt(ref: React.RefObject<HTMLDivElement | null>) {
-  useEffect(() => {
-    let permitted = false;
-
-    function applyTilt(beta: number, gamma: number) {
-      if (!ref.current) return;
-      const x = Math.max(-15, Math.min(15, beta * 0.3));
-      const y = Math.max(-15, Math.min(15, gamma * 0.3));
-      ref.current.style.transform = `perspective(800px) rotateX(${-x}deg) rotateY(${y}deg)`;
-    }
-
-    function handleOrientation(e: DeviceOrientationEvent) {
-      if (!permitted) return;
-      applyTilt(e.beta ?? 0, e.gamma ?? 0);
-    }
-
-    async function requestAndListen() {
-      if (
-        typeof DeviceOrientationEvent !== 'undefined' &&
-        // @ts-expect-error - requestPermission is iOS-only
-        typeof DeviceOrientationEvent.requestPermission === 'function'
-      ) {
-        try {
-          // @ts-expect-error - requestPermission is iOS-only
-          const permission = await DeviceOrientationEvent.requestPermission();
-          if (permission === 'granted') {
-            permitted = true;
-            window.addEventListener('deviceorientation', handleOrientation);
-          }
-        } catch {
-          // permission denied or unavailable
-        }
-      } else if (typeof DeviceOrientationEvent !== 'undefined') {
-        // Android — no permission needed
-        permitted = true;
-        window.addEventListener('deviceorientation', handleOrientation);
-      }
-    }
-
-    // iOS requires a user gesture before requestPermission can be called
-    window.addEventListener('touchstart', requestAndListen, { once: true });
-
-    return () => {
-      window.removeEventListener('touchstart', requestAndListen);
-      window.removeEventListener('deviceorientation', handleOrientation);
-    };
-  }, [ref]);
-}
 
 const fadeUp = {
   hidden: { opacity: 0, y: 28 },
@@ -62,10 +13,69 @@ const fadeUp = {
   }),
 };
 
+function isIOS() {
+  return (
+    typeof window !== 'undefined' &&
+    // @ts-expect-error - requestPermission is iOS-only
+    typeof DeviceOrientationEvent !== 'undefined' &&
+    // @ts-expect-error - requestPermission is iOS-only
+    typeof DeviceOrientationEvent.requestPermission === 'function'
+  );
+}
+
+function isAndroid() {
+  return (
+    typeof window !== 'undefined' &&
+    typeof DeviceOrientationEvent !== 'undefined' &&
+    // @ts-expect-error - requestPermission is iOS-only
+    typeof DeviceOrientationEvent.requestPermission !== 'function' &&
+    navigator.maxTouchPoints > 0
+  );
+}
+
 export function Section() {
   const ROBOT_SCENE_URL = "https://prod.spline.design/PyzDhpQ9E5f1E3MT/scene.splinecode";
   const tiltRef = useRef<HTMLDivElement>(null);
-  useTilt(tiltRef);
+  const [showTiltBtn, setShowTiltBtn] = useState(false);
+  const [tiltActive, setTiltActive] = useState(false);
+
+  function applyTilt(beta: number, gamma: number) {
+    if (!tiltRef.current) return;
+    const x = Math.max(-15, Math.min(15, beta * 0.3));
+    const y = Math.max(-15, Math.min(15, gamma * 0.3));
+    tiltRef.current.style.transform = `perspective(800px) rotateX(${-x}deg) rotateY(${y}deg)`;
+  }
+
+  // Android: auto-enable on mount
+  useEffect(() => {
+    if (!isAndroid()) {
+      if (isIOS()) setShowTiltBtn(true);
+      return;
+    }
+    function handleOrientation(e: DeviceOrientationEvent) {
+      applyTilt(e.beta ?? 0, e.gamma ?? 0);
+    }
+    window.addEventListener('deviceorientation', handleOrientation);
+    setTiltActive(true);
+    return () => window.removeEventListener('deviceorientation', handleOrientation);
+  }, []);
+
+  // iOS: called directly from button click (must be synchronous)
+  function enableTiltIOS() {
+    // @ts-expect-error - requestPermission is iOS-only
+    DeviceOrientationEvent.requestPermission()
+      .then((permission: string) => {
+        if (permission === 'granted') {
+          function handleOrientation(e: DeviceOrientationEvent) {
+            applyTilt(e.beta ?? 0, e.gamma ?? 0);
+          }
+          window.addEventListener('deviceorientation', handleOrientation);
+          setTiltActive(true);
+          setShowTiltBtn(false);
+        }
+      })
+      .catch(() => setShowTiltBtn(false));
+  }
 
   return (
     <div className="relative w-screen h-screen overflow-hidden">
@@ -73,7 +83,7 @@ export function Section() {
       <div
         ref={tiltRef}
         className="absolute inset-0 z-0 will-change-transform"
-        style={{ transition: 'transform 0.1s ease-out' }}
+        style={{ transition: 'transform 0.12s ease-out' }}
       >
         <InteractiveRobotSpline
           scene={ROBOT_SCENE_URL}
@@ -120,6 +130,22 @@ export function Section() {
 
         </div>
       </div>
+
+      {/* iOS tilt enable button */}
+      <AnimatePresence>
+        {showTiltBtn && !tiltActive && (
+          <motion.button
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 10 }}
+            transition={{ delay: 1.5, duration: 0.5 }}
+            onClick={enableTiltIOS}
+            className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2 px-4 py-2 rounded-full border border-white/20 bg-white/5 backdrop-blur-sm text-white/60 text-xs pointer-events-auto"
+          >
+            <span>🌀</span> Tap to enable tilt
+          </motion.button>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
