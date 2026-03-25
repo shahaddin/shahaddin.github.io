@@ -41,12 +41,6 @@ export function Navbar() {
             </li>
           ))}
         </ul>
-        <a
-          href="mailto:shahaddingafarov@gmail.com"
-          className="text-xs px-4 py-1.5 rounded-full border border-white/20 text-white/70 hover:border-white/50 hover:text-white transition"
-        >
-          Hire me
-        </a>
       </nav>
     </header>
   );

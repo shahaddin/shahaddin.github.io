@@ -15,7 +15,7 @@ export function Section() {
       <div className="absolute inset-0 z-10 pt-20 md:pt-32 lg:pt-40 px-4 md:px-8 pointer-events-none">
         <div className="text-center text-white drop-shadow-lg w-full max-w-2xl mx-auto">
           <p className="text-sm md:text-base uppercase tracking-widest text-blue-300 mb-3 font-medium">
-            PhD Researcher · AI/ML · Full-Stack
+            PhD Researcher · AI/ML
           </p>
           <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight">
             Shahaddin Gafarov

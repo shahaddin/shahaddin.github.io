@@ -39,7 +39,7 @@ const experience = [
     title: 'Junior IT Technician – Servers & Database',
     org: 'AzeriMed LLC',
     location: 'Baku, Azerbaijan',
-    period: 'Jun 2021 – Jun 2022',
+    period: 'Jun 2020 – Jun 2021',
     bullets: [
       'Collaborated with senior developers on error handling with the databases.',
       'Ensured proper functioning of AzeriMed servers through maintenance and troubleshooting.',
@@ -112,9 +112,8 @@ const publications = [
   {
     authors: 'Öğülmüş, F. E., Gafarov, S., Almaloğlu, Y., Özdemir, B. H., et al.',
     title: 'SPACT: A Clustering-Driven Multi-Modal Framework for Survival Prediction Using Genomic and Histopathology Data.',
-    venue: 'Medical Image Analysis',
+    venue: 'Medical Image Analysis(in progress)',
     year: '2026',
-    note: 'Minor revision',
   },
   {
     authors: 'Khatib, T., Gafarov, S., Strikowski, J. D., Turan, M., & Kahveci, T.',
@@ -155,9 +154,9 @@ export default function Home() {
         <h2 className="text-xs uppercase tracking-widest text-blue-400 mb-3">About</h2>
         <p className="text-2xl md:text-3xl font-light leading-relaxed text-white/90">
           I&apos;m a PhD student in Computer Science at the{' '}
-          <span className="text-white font-medium">University of Florida</span>, researching
-          multimodal deep learning for cancer survival prediction and robustness in biological AI.
-          I also build software — from full-stack web apps to robotics pipelines.
+          <span className="text-white font-medium">University of Florida</span>, solving problems related to the
+          bioinformatics using deep learning and computer vision applications.
+          I also have general software engineer experience via full-stack development, and experience in competitive programming.
         </p>
       </section>
 
