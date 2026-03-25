@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useTheme } from 'next-themes';
+import { useTheme } from '@/hooks/use-theme';
 import { Sun, Moon } from 'lucide-react';
 
 const links = [
@@ -14,17 +14,13 @@ const links = [
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
-  const { setTheme, resolvedTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
+  const { isDark, toggle, mounted } = useTheme();
 
   useEffect(() => {
-    setMounted(true);
     const handler = () => setScrolled(window.scrollY > 40);
     window.addEventListener('scroll', handler);
     return () => window.removeEventListener('scroll', handler);
   }, []);
-
-  const isDark = resolvedTheme === 'dark';
 
   return (
     <header
@@ -51,7 +47,7 @@ export function Navbar() {
 
         {mounted && (
           <button
-            onClick={() => setTheme(isDark ? 'light' : 'dark')}
+            onClick={toggle}
             className="p-2 rounded-full border border-black/10 dark:border-white/20 text-gray-600 dark:text-white/60 hover:text-gray-900 dark:hover:text-white hover:border-black/30 dark:hover:border-white/40 transition"
             aria-label="Toggle theme"
           >
