@@ -344,9 +344,7 @@ export default function Home() {
       <section id="contact" className="max-w-4xl mx-auto px-6 py-24">
         <FadeIn>
           <h2 className="text-xs uppercase tracking-widest text-blue-500 dark:text-blue-400 mb-8">Contact</h2>
-          <p className="text-2xl font-light text-gray-700 dark:text-white/80 mb-10">
-            Open to research collaborations, opportunities, and conversations.
-          </p>
+
           <div className="flex flex-wrap gap-6">
             <a href="mailto:shahaddingafarov@gmail.com" className="flex items-center gap-2 text-gray-500 dark:text-white/60 hover:text-gray-900 dark:hover:text-white transition text-sm">
               <Mail size={16} /> shahaddingafarov@gmail.com
