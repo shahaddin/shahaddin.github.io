@@ -4,31 +4,26 @@ import { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { InteractiveRobotSpline } from '@/components/ui/interactive-3d-robot';
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 28 },
-  show: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { delay: i * 0.13, duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] },
-  }),
-};
+function fadeUp(i: number) {
+  return {
+    initial: { opacity: 0, y: 28 },
+    animate: { opacity: 1, y: 0 },
+    transition: { delay: i * 0.13, duration: 0.7, ease: 'easeOut' as const },
+  };
+}
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const DOE = typeof DeviceOrientationEvent !== 'undefined' ? (DeviceOrientationEvent as any) : null;
 
 function isIOS() {
-  return (
-    typeof window !== 'undefined' &&
-    // @ts-expect-error - requestPermission is iOS-only
-    typeof DeviceOrientationEvent !== 'undefined' &&
-    // @ts-expect-error - requestPermission is iOS-only
-    typeof DeviceOrientationEvent.requestPermission === 'function'
-  );
+  return typeof window !== 'undefined' && DOE && typeof DOE.requestPermission === 'function';
 }
 
 function isAndroid() {
   return (
     typeof window !== 'undefined' &&
-    typeof DeviceOrientationEvent !== 'undefined' &&
-    // @ts-expect-error - requestPermission is iOS-only
-    typeof DeviceOrientationEvent.requestPermission !== 'function' &&
+    DOE &&
+    typeof DOE.requestPermission !== 'function' &&
     navigator.maxTouchPoints > 0
   );
 }
@@ -97,28 +92,28 @@ export function Section() {
 
           <motion.p
             className="text-sm md:text-base uppercase tracking-widest text-blue-300 mb-3 font-medium"
-            variants={fadeUp} custom={0} initial="hidden" animate="show"
+            {...fadeUp(0)}
           >
             PhD Researcher · AI/ML · Full-Stack
           </motion.p>
 
           <motion.h1
             className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight"
-            variants={fadeUp} custom={1} initial="hidden" animate="show"
+            {...fadeUp(1)}
           >
             Shahaddin Gafarov
           </motion.h1>
 
           <motion.p
             className="mt-4 text-base md:text-lg text-white/70 max-w-lg mx-auto"
-            variants={fadeUp} custom={2} initial="hidden" animate="show"
+            {...fadeUp(2)}
           >
             Building intelligent systems at the intersection of deep learning, bioinformatics, and software engineering.
           </motion.p>
 
           <motion.div
             className="mt-8 flex gap-4 justify-center pointer-events-auto"
-            variants={fadeUp} custom={3} initial="hidden" animate="show"
+            {...fadeUp(3)}
           >
             <a href="#research" className="px-6 py-2.5 bg-white text-black rounded-full font-medium text-sm hover:bg-white/90 transition">
               See Research
