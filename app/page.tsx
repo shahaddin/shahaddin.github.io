@@ -1,65 +1,283 @@
-import Image from "next/image";
+import { Section } from '@/components/blocks/interactive-3d-robot';
+import { Mail, Phone, ExternalLink } from 'lucide-react';
+
+const experience = [
+  {
+    title: 'Graduate Research Assistant – Bioinformatics & Medical AI',
+    org: 'University of Florida',
+    location: 'Gainesville, FL',
+    period: 'Apr 2025 – Present',
+    bullets: [
+      'Working on a multimodal deep learning framework for cancer survival prediction.',
+      'Developing a robustness benchmark for evaluating ML techniques on biological data.',
+      'Lead Teaching Assistant for Advanced Data Structures (Prof. Dr. Sartaj Sahni).',
+    ],
+  },
+  {
+    title: 'Undergraduate Research Assistant',
+    org: 'University of South Florida',
+    location: 'Tampa, FL',
+    period: 'Dec 2023 – Dec 2024',
+    bullets: [
+      'Defined robotic systems for benchmarking multi-object grasping solutions.',
+      'Detected 6D poses of top-layer objects using deep learning techniques.',
+    ],
+  },
+  {
+    title: 'Full-Stack Developer',
+    org: 'MusicLessonHub',
+    location: 'Boise, ID (Remote)',
+    period: 'Apr 2022 – Aug 2022',
+    bullets: [
+      'Contributed to a startup connecting students and teachers across the United States.',
+      'Collaborated with designers to develop interfaces using front and back-end tools.',
+    ],
+  },
+  {
+    title: 'Junior IT Technician – Servers & Database',
+    org: 'AzeriMed LLC',
+    location: 'Baku, Azerbaijan',
+    period: 'Jun 2020 – Jun 2021',
+    bullets: [
+      "Worked on aptekonline.az, Azerbaijan's first pharmaceutical database.",
+      'Collaborated with senior developers on error handling with databases.',
+    ],
+  },
+];
+
+const research = [
+  {
+    name: 'SPACT',
+    desc: 'Novel multimodal network for predicting cancer survival based on tissue using Whole Slide Images + Multi-Omics data.',
+    tags: ['PyTorch', 'WSI', 'Multi-Omics', 'Survival Analysis'],
+    status: 'Under Review – Medical Image Analysis',
+  },
+  {
+    name: 'PLATO',
+    desc: 'Dynamic graph-based learning model for predicting future biological interactions: drug-drug, gene-gene, and protein-protein.',
+    tags: ['Graph Neural Networks', 'Bioinformatics', 'Temporal Graphs'],
+    status: 'Published – ACM BCB 2025',
+  },
+  {
+    name: 'Benchmarking Multi-Object Grasping',
+    desc: 'Benchmark framework for evaluating multi-object grasping in robotics with deep learning-based 6D pose estimation.',
+    tags: ['Robotics', '6D Pose', 'Deep Learning', 'Computer Vision'],
+    status: 'Published – IEEE RA-L 2025',
+  },
+];
+
+const projects = [
+  {
+    name: 'Delphi Interpreter',
+    desc: 'Implemented a full grammar, parser, lexer, and interpreter from scratch in Java for the Delphi programming language.',
+    tags: ['Java', 'Compilers', 'Interpreter'],
+  },
+  {
+    name: 'InCollege',
+    desc: 'Student-focused networking platform with user search and profile management, built using Agile methodology.',
+    tags: ['Full-Stack', 'Agile', 'Networking'],
+  },
+];
+
+const publications = [
+  {
+    authors: 'Öğülmüş, F. E., Gafarov, S., Almaloğlu, Y., Özdemir, B. H., et al.',
+    title: 'SPACT: A Clustering-Driven Multi-Modal Framework for Survival Prediction Using Genomic and Histopathology Data.',
+    venue: 'Medical Image Analysis',
+    year: '2026',
+    note: 'Minor revision',
+  },
+  {
+    authors: 'Khatib, T., Gafarov, S., Strikowski, J. D., Turan, M., & Kahveci, T.',
+    title: 'PLATO: Predicting Longitudinally-Aligned Time Observations of Biological Networks.',
+    venue: 'ACM BCB \'25',
+    year: '2025',
+  },
+  {
+    authors: 'Chen, T., Frumento, R., Pagnanelli, G., Keth, V., Gafarov, S., et al.',
+    title: 'Benchmarking Multi-Object Grasping.',
+    venue: 'IEEE Robotics and Automation Letters',
+    year: '2025',
+    note: 'Vol. 10, pp. 9510–9517',
+  },
+];
+
+const skills = ['Python', 'C/C++', 'C#', 'Java', 'JavaScript', 'SQL (MySQL)', 'HTML/CSS',
+  'PyTorch', 'TensorFlow', 'NumPy', 'Pandas', 'Matplotlib'];
+
+const awards = [
+  { title: 'Full Tuition Waiver & Stipend', org: 'University of Florida – PhD Program' },
+  { title: 'Green & Gold Presidential Award', org: 'University of South Florida' },
+  { title: 'Bronze Medal', org: 'National Informatics Olympiad of Azerbaijan' },
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main className="bg-black text-white">
+      {/* Hero */}
+      <Section />
+
+      {/* About */}
+      <section className="max-w-4xl mx-auto px-6 py-24">
+        <h2 className="text-xs uppercase tracking-widest text-blue-400 mb-3">About</h2>
+        <p className="text-2xl md:text-3xl font-light leading-relaxed text-white/90">
+          I'm a PhD student in Computer Science at the{' '}
+          <span className="text-white font-medium">University of Florida</span>, researching
+          multimodal deep learning for cancer survival prediction and robustness in biological AI.
+          I also build software — from full-stack web apps to robotics pipelines.
+        </p>
+      </section>
+
+      <div className="border-t border-white/10" />
+
+      {/* Experience */}
+      <section className="max-w-4xl mx-auto px-6 py-24">
+        <h2 className="text-xs uppercase tracking-widest text-blue-400 mb-12">Experience</h2>
+        <div className="space-y-12">
+          {experience.map((job) => (
+            <div key={job.title} className="grid md:grid-cols-[1fr_2fr] gap-4">
+              <div>
+                <p className="text-white/40 text-sm">{job.period}</p>
+                <p className="text-white/60 text-sm mt-1">{job.org}</p>
+                <p className="text-white/40 text-xs mt-0.5">{job.location}</p>
+              </div>
+              <div>
+                <h3 className="font-semibold text-white">{job.title}</h3>
+                <ul className="mt-3 space-y-1.5">
+                  {job.bullets.map((b) => (
+                    <li key={b} className="text-white/60 text-sm flex gap-2">
+                      <span className="text-blue-400 mt-1 shrink-0">–</span>
+                      {b}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          ))}
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
+      </section>
+
+      <div className="border-t border-white/10" />
+
+      {/* Research */}
+      <section id="research" className="max-w-4xl mx-auto px-6 py-24">
+        <h2 className="text-xs uppercase tracking-widest text-blue-400 mb-12">Research</h2>
+        <div className="grid md:grid-cols-3 gap-6">
+          {research.map((r) => (
+            <div key={r.name} className="border border-white/10 rounded-2xl p-6 hover:border-white/25 transition">
+              <h3 className="font-bold text-lg">{r.name}</h3>
+              <p className="text-white/50 text-xs mt-1 mb-3">{r.status}</p>
+              <p className="text-white/70 text-sm leading-relaxed">{r.desc}</p>
+              <div className="mt-4 flex flex-wrap gap-1.5">
+                {r.tags.map((t) => (
+                  <span key={t} className="text-xs px-2 py-0.5 rounded-full bg-white/5 text-white/50 border border-white/10">{t}</span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <div className="border-t border-white/10" />
+
+      {/* Publications */}
+      <section className="max-w-4xl mx-auto px-6 py-24">
+        <h2 className="text-xs uppercase tracking-widest text-blue-400 mb-12">Publications</h2>
+        <div className="space-y-8">
+          {publications.map((p) => (
+            <div key={p.title} className="flex gap-6">
+              <span className="text-blue-400 font-mono text-sm mt-1 shrink-0">{p.year}</span>
+              <div>
+                <p className="font-medium text-white">{p.title}</p>
+                <p className="text-white/50 text-sm mt-1">{p.authors}</p>
+                <p className="text-blue-300/70 text-sm mt-1">
+                  {p.venue}{p.note ? ` · ${p.note}` : ''}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <div className="border-t border-white/10" />
+
+      {/* Projects */}
+      <section className="max-w-4xl mx-auto px-6 py-24">
+        <h2 className="text-xs uppercase tracking-widest text-blue-400 mb-12">Projects</h2>
+        <div className="grid md:grid-cols-2 gap-6">
+          {projects.map((p) => (
+            <div key={p.name} className="border border-white/10 rounded-2xl p-6 hover:border-white/25 transition">
+              <div className="flex items-center justify-between mb-3">
+                <h3 className="font-bold">{p.name}</h3>
+                <ExternalLink size={14} className="text-white/30" />
+              </div>
+              <p className="text-white/60 text-sm leading-relaxed">{p.desc}</p>
+              <div className="mt-4 flex flex-wrap gap-1.5">
+                {p.tags.map((t) => (
+                  <span key={t} className="text-xs px-2 py-0.5 rounded-full bg-white/5 text-white/50 border border-white/10">{t}</span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <div className="border-t border-white/10" />
+
+      {/* Skills */}
+      <section className="max-w-4xl mx-auto px-6 py-24">
+        <h2 className="text-xs uppercase tracking-widest text-blue-400 mb-8">Technical Skills</h2>
+        <div className="flex flex-wrap gap-3">
+          {skills.map((s) => (
+            <span key={s} className="px-4 py-2 rounded-full border border-white/15 text-white/70 text-sm hover:border-white/30 hover:text-white transition">
+              {s}
+            </span>
+          ))}
+        </div>
+      </section>
+
+      <div className="border-t border-white/10" />
+
+      {/* Awards */}
+      <section className="max-w-4xl mx-auto px-6 py-24">
+        <h2 className="text-xs uppercase tracking-widest text-blue-400 mb-10">Awards</h2>
+        <div className="grid md:grid-cols-3 gap-6">
+          {awards.map((a) => (
+            <div key={a.title} className="border border-white/10 rounded-2xl p-6">
+              <p className="font-semibold text-white">{a.title}</p>
+              <p className="text-white/50 text-sm mt-1">{a.org}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <div className="border-t border-white/10" />
+
+      {/* Contact */}
+      <section id="contact" className="max-w-4xl mx-auto px-6 py-24">
+        <h2 className="text-xs uppercase tracking-widest text-blue-400 mb-8">Contact</h2>
+        <p className="text-2xl font-light text-white/80 mb-10">
+          Open to research collaborations, opportunities, and conversations.
+        </p>
+        <div className="flex flex-wrap gap-6">
+          <a href="mailto:shahaddingafarov@gmail.com" className="flex items-center gap-2 text-white/60 hover:text-white transition text-sm">
+            <Mail size={16} /> shahaddingafarov@gmail.com
           </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
+          <a href="tel:8138972367" className="flex items-center gap-2 text-white/60 hover:text-white transition text-sm">
+            <Phone size={16} /> 813-897-2367
+          </a>
+          <a href="https://github.com/shahaddin" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-white/60 hover:text-white transition text-sm">
+            <ExternalLink size={16} /> github.com/shahaddin
+          </a>
+          <a href="https://linkedin.com/in/shahaddin" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-white/60 hover:text-white transition text-sm">
+            <ExternalLink size={16} /> linkedin.com/in/shahaddin
           </a>
         </div>
-      </main>
-    </div>
+      </section>
+
+      <footer className="border-t border-white/10 text-center py-8 text-white/20 text-xs">
+        © {new Date().getFullYear()} Shahaddin Gafarov
+      </footer>
+    </main>
   );
 }
