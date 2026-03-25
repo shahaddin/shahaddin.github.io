@@ -31,14 +31,14 @@ export function Navbar() {
       }`}
     >
       <nav className="max-w-4xl mx-auto px-6 h-14 flex items-center justify-between">
-        <a href="#" className="text-sm font-semibold text-gray-900 dark:text-white tracking-tight">
+        <a href="#" className={`text-sm font-semibold tracking-tight transition ${scrolled ? 'text-gray-900 dark:text-white' : 'text-white'}`}>
           Shahaddin Gafarov
         </a>
 
         <ul className="hidden md:flex items-center gap-6">
           {links.map((l) => (
             <li key={l.href}>
-              <a href={l.href} className="text-sm text-gray-500 dark:text-white/50 hover:text-gray-900 dark:hover:text-white transition">
+              <a href={l.href} className={`text-sm transition ${scrolled ? 'text-gray-500 dark:text-white/50 hover:text-gray-900 dark:hover:text-white' : 'text-white/70 hover:text-white'}`}>
                 {l.label}
               </a>
             </li>
@@ -48,7 +48,7 @@ export function Navbar() {
         {mounted && (
           <button
             onClick={toggle}
-            className="p-2 rounded-full border border-black/10 dark:border-white/20 text-gray-600 dark:text-white/60 hover:text-gray-900 dark:hover:text-white hover:border-black/30 dark:hover:border-white/40 transition"
+            className={`p-2 rounded-full border transition ${scrolled ? 'border-black/10 dark:border-white/20 text-gray-600 dark:text-white/60 hover:text-gray-900 dark:hover:text-white hover:border-black/30 dark:hover:border-white/40' : 'border-white/30 text-white/70 hover:text-white hover:border-white/60'}`}
             aria-label="Toggle theme"
           >
             {isDark ? <Sun size={15} /> : <Moon size={15} />}
