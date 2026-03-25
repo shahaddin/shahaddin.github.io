@@ -1,4 +1,5 @@
 import { Section } from '@/components/blocks/interactive-3d-robot';
+import { Navbar } from '@/components/ui/navbar';
 import { Mail, Phone, ExternalLink } from 'lucide-react';
 
 const experience = [
@@ -82,12 +83,6 @@ const projects = [
     url: 'https://github.com/shahaddin/Sentiment-Analysis',
   },
   {
-    name: 'MediaPipe Pose & Hand Detection',
-    desc: "Computer vision application for real-time Pose Landmark Detection and Hand Landmark Detection using Google's MediaPipe AI Edge library.",
-    tags: ['Python', 'Computer Vision', 'MediaPipe', 'Google AI'],
-    url: 'https://github.com/shahaddin/MediaPipe-by-Google-AI-Edge',
-  },
-  {
     name: 'Gator Air Traffic Scheduler',
     desc: 'Airport runway slot scheduler that tracks flights across states using advanced data structures for efficient scheduling and conflict resolution.',
     tags: ['Python', 'Data Structures', 'Algorithms'],
@@ -109,7 +104,7 @@ const projects = [
     name: 'InCollege',
     desc: 'CLI application simulating a LinkedIn-like social platform for college students — streamlines job postings and student communication using Python and SQLite.',
     tags: ['Python', 'SQLite', 'CLI', 'Agile'],
-    url: 'https://github.com/shahaddin/InCollege',
+    url: 'https://github.com/daniel19e/SWE-Project-Fall23-InCollege',
   },
 ];
 
@@ -151,6 +146,7 @@ const awards = [
 export default function Home() {
   return (
     <main className="bg-black text-white">
+      <Navbar />
       {/* Hero */}
       <Section />
 
@@ -168,7 +164,7 @@ export default function Home() {
       <div className="border-t border-white/10" />
 
       {/* Experience */}
-      <section className="max-w-4xl mx-auto px-6 py-24">
+      <section id="experience" className="max-w-4xl mx-auto px-6 py-24">
         <h2 className="text-xs uppercase tracking-widest text-blue-400 mb-12">Experience</h2>
         <div className="space-y-12">
           {experience.map((job) => (
@@ -218,7 +214,7 @@ export default function Home() {
       <div className="border-t border-white/10" />
 
       {/* Publications */}
-      <section className="max-w-4xl mx-auto px-6 py-24">
+      <section id="publications" className="max-w-4xl mx-auto px-6 py-24">
         <h2 className="text-xs uppercase tracking-widest text-blue-400 mb-12">Publications</h2>
         <div className="space-y-8">
           {publications.map((p) => (
@@ -239,7 +235,7 @@ export default function Home() {
       <div className="border-t border-white/10" />
 
       {/* Projects */}
-      <section className="max-w-4xl mx-auto px-6 py-24">
+      <section id="projects" className="max-w-4xl mx-auto px-6 py-24">
         <h2 className="text-xs uppercase tracking-widest text-blue-400 mb-12">Projects</h2>
         <div className="grid md:grid-cols-2 gap-6">
           {projects.map((p) => (
