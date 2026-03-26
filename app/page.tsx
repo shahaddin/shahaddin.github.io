@@ -169,7 +169,7 @@ export default function Home() {
         <FadeIn>
           <h2 className="text-xs uppercase tracking-widest text-blue-500 dark:text-blue-400 mb-6">About</h2>
           <p className="text-base md:text-lg leading-relaxed text-gray-500 dark:text-white/60 max-w-2xl">
-            PhD researcher at the <span className="text-gray-900 dark:text-white font-medium">University of Florida</span>, building deep learning systems for bioinformatics and medical imaging. Three publications across ACM, IEEE, and Medical Image Analysis, with ongoing NVIDIA-supported research in spatial transcriptomics and adversarial robustness.
+            PhD researcher at the University of Florida, building deep learning systems for bioinformatics and medical imaging. Three publications across ACM, IEEE, and Medical Image Analysis, with ongoing <span className="text-gray-900 dark:text-white font-medium">NVIDIA-supported </span>research in spatial transcriptomics and adversarial robustness.
           </p>
         </FadeIn>
       </section>
