@@ -54,7 +54,7 @@ const research = [
     name: 'SPACT',
     desc: 'Novel multimodal network for predicting cancer survival based on tissue using Whole Slide Images + Multi-Omics data.',
     tags: ['PyTorch', 'WSI', 'Multi-Omics', 'Survival Analysis'],
-    status: 'Under Review – Medical Image Analysis',
+    status: 'Published – Medical Image Analysis',
   },
   {
     name: 'PLATO',
@@ -123,7 +123,7 @@ const publications = [
   {
     authors: 'Öğülmüş, F. E., Gafarov, S., Almaloğlu, Y., Özdemir, B. H., et al.',
     title: 'SPACT: A Clustering-Driven Multi-Modal Framework for Survival Prediction Using Genomic and Histopathology Data.',
-    venue: 'Medical Image Analysis (in progress)',
+    venue: 'Medical Image Analysis, 112, 104078',
     year: '2026',
     note: undefined,
   },
