@@ -37,14 +37,13 @@ const experience = [
     ],
   },
   {
-    title: 'Junior IT Technician – Servers & Database',
+    title: 'Software Engineer, Databases',
     org: 'AzeriMed LLC',
     location: 'Baku, Azerbaijan',
     period: 'Jun 2020 – Jun 2021',
     bullets: [
-      'Collaborated with senior developers on error handling with the databases.',
-      'Ensured proper functioning of AzeriMed servers through maintenance and troubleshooting.',
-      "Worked on aptekonline.az, Azerbaijan's first pharmaceutical database for business purposes.",
+      "Worked on aptekonline.az database, Azerbaijan's first online pharmaceutical store for business purposes.",
+      'Collaborated with developers on database error handling, backend reliability, and data-related issue resolution.',
     ],
   },
 ];
