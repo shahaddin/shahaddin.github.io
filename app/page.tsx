@@ -16,38 +16,38 @@ const research = [
     name: 'Adversarial Robustness Benchmark',
     role: 'First author',
     status: 'Under review · ACM Computing Surveys',
-    desc: 'The first adversarial robustness benchmark for dynamic biological network prediction.',
+    desc: 'The first benchmark testing whether AI models that predict protein interactions can be fooled by small, deliberate data changes. Such changes pushed a leading model from 0.87 AUC to worse than random.',
     tags: ['Graph ML', 'Adversarial ML', 'Benchmarking'],
     url: 'https://github.com/shahaddin/Adversarial-Dynamic-Graph-Robustness-Benchmark',
   },
   {
+    name: 'GRAFT',
+    role: 'Designing the model',
+    status: 'In progress · NVIDIA-supported',
+    desc: 'Predicts the genes a spatial transcriptomics experiment did not measure, built on a pretrained foundation model. Most accurate of all published methods compared in early results.',
+    tags: ['Foundation Models', 'Genomics', 'Deep Learning'],
+  },
+  {
     name: 'SPACT',
-    role: 'Co-author',
+    role: 'Led the peer-review revision',
     status: 'Published · Medical Image Analysis, 2026',
-    desc: 'Predicts cancer patient survival by fusing whole-slide pathology images with multi-omics data.',
+    desc: 'Predicts cancer patient survival by combining tissue images with genomic data.',
     tags: ['PyTorch', 'Multi-modal', 'Medical Imaging'],
     url: 'https://github.com/ezgiogulmus/SPACT',
   },
   {
-    name: 'Spatial Gene Recovery',
-    role: 'Designed the model',
-    status: 'In progress · NVIDIA-supported',
-    desc: 'Recovers genes that spatial transcriptomics assays fail to measure, built on a frozen single-cell foundation model.',
-    tags: ['Foundation Models', 'Genomics', 'Deep Learning'],
-  },
-  {
     name: 'PLATO',
-    role: 'Co-author · built benchmarking suite',
+    role: 'Built the evaluation pipeline',
     status: "Published · ACM BCB '25",
-    desc: 'Predicts how biological networks (protein, gene, drug interactions) change over time.',
+    desc: 'Predicts how gene networks change over time. Outperformed 4 leading methods on leukemia data.',
     tags: ['Temporal Graphs', 'Bioinformatics'],
     url: 'https://par.nsf.gov/servlets/purl/10665388',
   },
   {
     name: 'Benchmarking Multi-Object Grasping',
-    role: 'Co-author · built benchmark protocols',
+    role: 'Designed protocols & metrics',
     status: 'Published · IEEE Robotics and Automation Letters, 2025',
-    desc: 'A standard benchmark for robots grasping several objects at once, with deep-learning 6D pose detection.',
+    desc: 'A benchmark for robots grasping several objects at once: 3 protocols and 4 metrics, tested on 3 robot hands and a human baseline.',
     tags: ['Robotics', 'Computer Vision'],
     url: 'https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=11108246',
   },
@@ -60,15 +60,15 @@ const experience = [
     period: '2025 – Present',
     bullets: [
       'Deep learning for biology and medicine: graph ML, histopathology, spatial transcriptomics.',
-      'Lead TA for Advanced Data Structures and Enterprise Software Engineering Practices.',
+      'Lead TA for Advanced Data Structures (~75 students) and Enterprise Software Engineering Practices (~200).',
     ],
   },
   {
-    title: 'Undergraduate Research Assistant',
+    title: 'Undergraduate Research Assistant, Robotics',
     org: 'University of South Florida',
     period: '2023 – 2024',
     bullets: [
-      'Deep learning 6D pose detection for robotic grasping; benchmark protocols published in IEEE RA-L.',
+      'Deep learning models estimating the 3D position and orientation of objects in a pile for robotic grasping; benchmark published in IEEE RA-L.',
     ],
   },
   {
@@ -76,7 +76,7 @@ const experience = [
     org: 'MusicLessonHub (startup)',
     period: '2022',
     bullets: [
-      'Shipped front-end and back-end features for a student–teacher matching platform, working directly with designers.',
+      'Built front-end and back-end features for a platform matching music students with teachers across the US, shipping alongside the design team.',
     ],
   },
   {
@@ -84,19 +84,20 @@ const experience = [
     org: 'AzeriMed LLC',
     period: '2020 – 2021',
     bullets: [
-      "Built the database layer for aptekonline.az, Azerbaijan's first online pharmacy platform; cut query latency and error rate. The platform won the 2023 National Internet Award.",
+      "Built the database layer for aptekonline.az, Azerbaijan's first online pharmacy (National Internet Award, 2023).",
+      'Reduced query latency and error rates by redesigning database error handling.',
     ],
   },
 ];
 
 const skills: Record<string, string> = {
   Languages: 'Python, C/C++, Java, SQL, JavaScript',
-  'Machine Learning': 'PyTorch, scikit-learn, NumPy, Pandas, Scanpy',
-  Infrastructure: 'CUDA, SLURM / HPC clusters, Docker, Git',
+  'Machine Learning': 'PyTorch, scikit-learn, NumPy, Pandas, Matplotlib, Scanpy',
+  Infrastructure: 'CUDA, Slurm / HPC clusters, Docker, Git',
 };
 
 const education = [
-  { degree: 'Ph.D. Computer Science', school: 'University of Florida', period: '2025 – 2029', note: 'Full-ride scholarship' },
+  { degree: 'Ph.D. Computer Science', school: 'University of Florida', period: '2025 – 2028 (expected)', note: 'Full-ride scholarship' },
   { degree: 'B.S. Computer Science', school: 'University of South Florida', period: '2021 – 2024', note: 'Green & Gold Presidential Award' },
 ];
 
