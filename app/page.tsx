@@ -26,6 +26,7 @@ const research = [
     status: 'Published · Medical Image Analysis, 2026',
     desc: 'Predicts cancer patient survival by fusing whole-slide pathology images with multi-omics data.',
     tags: ['PyTorch', 'Multi-modal', 'Medical Imaging'],
+    url: 'https://github.com/ezgiogulmus/SPACT',
   },
   {
     name: 'Spatial Gene Recovery',
