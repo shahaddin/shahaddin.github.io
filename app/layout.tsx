@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Shahaddin Gafarov",
-  description: "PhD Researcher in Computer Science · AI/ML",
+  description: "Ph.D. student at the University of Florida building deep learning models for biological and medical data.",
 };
 
 export default function RootLayout({

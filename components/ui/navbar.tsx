@@ -5,10 +5,9 @@ import { useEffect, useState } from 'react';
 // import { Sun, Moon } from 'lucide-react';
 
 const links = [
-  { label: 'Experience', href: '#experience' },
   { label: 'Research', href: '#research' },
-  { label: 'Projects', href: '#projects' },
-  { label: 'Publications', href: '#publications' },
+  { label: 'Experience', href: '#experience' },
+  { label: 'Skills', href: '#skills' },
   { label: 'Contact', href: '#contact' },
 ];
 
@@ -30,7 +29,7 @@ export function Navbar() {
           : 'bg-transparent'
       }`}
     >
-      <nav className="max-w-4xl mx-auto px-6 h-14 flex items-center justify-between">
+      <nav className="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
         <a href="#" className="text-sm font-semibold tracking-tight text-white transition">
           Shahaddin Gafarov
         </a>
